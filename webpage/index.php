@@ -60,11 +60,11 @@ else if($_SERVER["REQUEST_METHOD"]=="POST"){
 				<ul class="form">
 					<li>
 						<label for="username">Username</label>
-						<input type="text" name="username" id="username" />
+						<input type="text" name="username" id="username" value="<?php echo isset($_COOKIE["username"])?$_COOKIE["username"]:"";?>"/>
 					</li>
 					<li>
 						<label for="pwd">Password</label>
-						<input type="password" name="pwd" id="pwd" />
+						<input type="password" name="pwd" id="pwd"/>
 					</li>
 					<li>
 						<label for="remember">Remember Me</label>
