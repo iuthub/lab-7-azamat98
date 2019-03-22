@@ -114,12 +114,6 @@ else if($_SERVER["REQUEST_METHOD"]=="POST"){
 				<p><?php echo $post["body"];?></p>
 			</div>
 			<?php } ?>
-			<div class="card">
-				<h2>TITLE HEADING</h2>
-				<h5>Author, Sep 2, 2017</h5>
-				<p>Some text..</p>
-				<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-			</div>
 		</div>
 			<?php } ?>
 	</body>
