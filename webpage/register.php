@@ -1,7 +1,27 @@
 <?php  
 
 include('connection.php');
-
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+$uname=$_POST["username"];
+$fullname=$_POST["fullname"];
+$email=$_POST["email"];
+$pass=$_POST["pwd"];
+$passc=$_POST["confirm_pwd"];
+if(
+	preg_match('/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}/i',$email)&&
+	$pass==$passc&&
+	preg_match('/^.{8,}$/i',$pass)
+	){
+		$stmt=$db->prepare("INSERT INTO users (username,email,password,fullname,dob) VALUES (?,?,?,?,?)");
+		$stmt->bindParam(1,$uname);
+		$stmt->bindParam(2,$email);
+		$stmt->bindParam(3,$pass);
+		$stmt->bindParam(4,$fullname);
+		$stmt->bindParam(5,date("Y-m-d"));
+		$stmt->execute();
+		header('Location: index.php');	
+	}
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
